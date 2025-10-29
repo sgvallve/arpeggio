@@ -1,3 +1,19 @@
+# PDBe Arpeggio
+
+## 🔧 Modifications in this fork Oct 2025
+
+This fork includes a small modification to allow 5-character ligand codes
+in the `RESNAME:` selector used by **pdbe-arpeggio**.
+
+**File changed:** `arpeggio/core/utils.py`  
+**Line modified:** 437  
+```diff
+- if len(selection) > 3:
++ if len(selection) > 5:
+```
+This change fixes the error
+Invalid selector: RESNAME:<ligand>
+for PDB structures such as 8Y42 (ligand A1D51).
 
 # PDBe Arpeggio
 
