@@ -434,7 +434,7 @@ def selection_parser(selection_list, atom_list):
             selection = selection.replace('RESNAME:', '').strip()
 
             # RESNAMES ARE MAX LENGTH 3
-            if len(selection) > 3:
+            if len(selection) > 5: # SGV Oct 2025 changed "if len(selection) > 3:" to "if len(selection) > 5:" to increase allowed ligand ID length from 3 to 5 characters.  
                 raise SelectionError(original_selection)
 
             current_atom_list = [x for x in current_atom_list if x.get_parent().resname.strip() == selection]
